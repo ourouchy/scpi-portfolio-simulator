@@ -65,7 +65,7 @@ cd scpi-portfolio-simulator
 ```bash
 # Copier le fichier d'environnement
 cd backend
-cp ".env copy" .env
+cp ".env.copy" .env
 
 # Éditer le fichier .env avec vos paramètres de base de données
 # DATABASE_URL="postgresql://username:password@127.0.0.1:5432/scpi_portfolio?serverVersion=15&charset=utf8"
@@ -178,6 +178,31 @@ Le projet inclut une documentation complète dans le dossier `doc/` :
 - **[Simulation](doc/simulation.md)** : Détails de la logique de simulation de portefeuille
 - **[Tests](doc/tests.md)** : Guide des tests backend et bonnes pratiques
 - **[Structure](doc/structure.md)** : Architecture complète du projet
+## Utilisation rapide avec Makefile
+
+Le projet inclut un `Makefile` pour automatiser les tâches les plus courantes en une seule commande :
+
+### Installation complète (backend + frontend + base de données) :
+
+```bash
+make setup
+```
+
+### Commandes utiles
+
+| Commande        | Description                                              |
+| --------------- | -------------------------------------------------------- |
+| `make backend`  | Installe les dépendances PHP (Symfony)                   |
+| `make frontend` | Installe les dépendances Node.js (Vue.js)                |
+| `make db`       | Crée la base de données locale (scpi\_portfolio)         |
+| `make migrate`  | Applique les migrations Doctrine                         |
+| `make fixtures` | Charge les données de démonstration                      |
+| `make serve`    | Démarre le serveur Symfony (backend)                     |
+| `make dev`      | Démarre le serveur de développement Vite (frontend)      |
+| `make test`     | Prépare la BDD de test et exécute tous les tests PHPUnit |
+
+> Assurez-vous d'avoir modifié le fichier `.env` avant de lancer `make setup`.
+
 
 ---
 
